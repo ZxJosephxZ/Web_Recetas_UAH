@@ -73,7 +73,7 @@ header nav{
 .carousel .list::before
 {
     position: absolute;
-    width: var(--w-iamge);
+    width: var(--w-image);
     height: 100%;
     content: '';
     top: 0;
@@ -100,7 +100,113 @@ header nav{
     opacity: .6;
 }
 
-img
+.carousel .list .item{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.image_1
 {
-    width: 250px;
+    width: 450px;
+}
+
+.image_3
+{
+    height: 450px;
+}
+
+.carousel .list .item .image
+{
+    width: var(--w-image);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: calc(100% - calc(var(--w-image) * var(--calculate)));
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    font-weight: 500;
+}
+
+.carousel .list .item .image img
+{
+    width: 90%;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 150px 50px #9e0c0c55);
+}
+
+.carousel .list .item .image figcaption
+{
+    font-family: 'Aboreto';
+    font-weight: bold;
+    font-size: 1.3em;
+    text-align: right;
+    margin-bottom: 30px;
+    width: 70%;
+}
+
+.carousel .list .item .main-content
+{
+    height: 100%;
+    display: grid;
+    grid-template-columns: calc(100% - calc(var(--w-image) * var(--calculate)));
+}
+
+.carousel .list .item .main-content .content
+{
+    padding: 150px 20px 20px 80px;
+}
+
+.carousel .list .item .main-content .content h2
+{
+    font-family: 'Aboreto';
+    font-size: 5em;
+}
+
+.carousel .list .item .main-content .content .addToSession
+{
+    background-color: #4f8b69;
+    color: #fff;
+    padding: 10px 30px;
+    font-family: Poppins;
+    font-size: large;
+    font-weight: 500;
+    border-radius: 30px;
+    border: none;
+    margin-top: 20px;
+}
+
+.arrows{
+    position: absolute;
+    bottom: 20px;
+    width: calc(100% - calc(var(--w-image) * var(--calculate)));
+    display: grid;
+    grid-template-columns: repeat(2, 50px);
+    grid-template-rows: 50px;
+    justify-content: end;
+    gap: 10px;
+}
+
+.arrows button
+{
+    background-color:  transparent;
+    border: 1px solid var(--border-color);
+    color: #fff;
+    font-family: monospace;
+    font-size: large;
+    font-weight: bold;
+    line-height: 0;
+    box-shadow: 0 10px 40px #5555;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.arrows button:hover
+{
+    background-color: #eee5;
 }
