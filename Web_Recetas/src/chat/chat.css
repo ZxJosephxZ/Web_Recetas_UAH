@@ -75,9 +75,9 @@ body{
 
 .ChatList{
     flex: 1;
-    overflow-y: scroll; 
+    overflow-y: auto; 
     overflow-x: hidden;
-    overflow-y: hidden;
+
 }
 
 .ChatList .search
@@ -86,16 +86,6 @@ body{
     gap: 20px;
     align-items: center;
     padding: 20px;
-}
-
-.ChatList .search .add
-{
-    width: 36px;
-    height: 36px;
-    background-color: rgba(17, 25, 40, 0.5);
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
 }
 
 .ChatList .search .searchBar img

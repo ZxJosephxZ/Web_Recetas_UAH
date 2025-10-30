@@ -4,16 +4,16 @@
         <link rel="stylesheet" href="chat.css">
     </head>
     <body>
+  
         <div class="container">
             <div class="List">
                 <div class="UserInfo">
                     <div class="user">
-                        <img src="../../../img/avatar.png" alt="">
-                        <h2>Joseph Pajuelo</h2>
+                        <img src="../../../img/avatar.png" id="img_user2" alt="">
+                        <h2 id="user2">Joseph Pajuelo</h2>
                     </div>
                     <div class="icons">
                         <img src="../../../img/more.png" alt="">
-                        <img src="../../../img/video.png" alt="">
                         <img src="../../../img/edit.png" alt="">
                     </div>
                 </div>
@@ -21,60 +21,25 @@
                     <div class="search">
                         <div class="searchBar">
                             <img src="../../../img/search.png" alt="">
-                            <input type="text" placeholder="Search">
-                        </div>
-                        <img src="../../../img/plus.png" alt="" class="add">
-                    </div>
-                    <div class="item">
-                        <img src="../../../img/avatar.png" alt="">
-                        <div class="texts">
-                            <span>Jane Doe</span>
-                            <p>Hello</p>
+                            <input type="text" id="searchInput" placeholder="Search">
                         </div>
                     </div>
-                     <div class="item">
-                        <img src="../../../img/avatar.png" alt="">
-                        <div class="texts">
-                            <span>Jane Doe</span>
-                            <p>Hello</p>
-                        </div>
-                    </div>
-                     <div class="item">
-                        <img src="../../../img/avatar.png" alt="">
-                        <div class="texts">
-                            <span>Jane Doe</span>
-                            <p>Hello</p>
-                        </div>
-                    </div>
-                     <div class="item">
-                        <img src="../../../img/avatar.png" alt="">
-                        <div class="texts">
-                            <span>Jane Doe</span>
-                            <p>Hello</p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="../../../img/avatar.png" alt="">
-                        <div class="texts">
-                            <span>Jane Doe</span>
-                            <p>Hello</p>
-                        </div>
-                    </div>
+                    <div id="friendContainer"></div>
                 </div>
             </div>
             <div class="Chat">
                 <div class="top">
                     <!--Igual solo debemos reutilizar componentes(esto es solo maquetado)-->
                     <div class="user">
-                        <img src="../../../img/avatar.png" alt="">
+                        <img src="../../../img/avatar.png" id="img_user1" alt="">
                         <div class="texts">
-                            <span>Jane Doe</span>
+                            <span id="user1">Jane Doe</span>
                             <p>Lorem ipsum dolor sit amet.</p>
                         </div>
                     </div>
                     <div class="icons">
                         <img src="../../../img/phone.png" alt="">
-                        <img src="../../../img/video.png" alt="">
+                        <img src="../../../img/plus.png" alt="">
                         <img src="../../../img/info.png" alt="">
                     </div>
                 </div>
@@ -194,27 +159,6 @@
                                 </div>
                                 <img src="../../../img/download.png" class="icon" alt="">
                             </div>
-                            <div class="photosItem">
-                                <div class="photoDetail">
-                                    <img src="../../../img/logo.png" alt="">
-                                    <span>photo_2025_2.png</span>
-                                </div>
-                                <img src="../../../img/download.png" class="icon" alt="">
-                            </div>
-                            <div class="photosItem">
-                                <div class="photoDetail">
-                                    <img src="../../../img/logo.png" alt="">
-                                    <span>photo_2025_2.png</span>
-                                </div>
-                                <img src="../../../img/download.png" class="icon" alt="">
-                            </div>
-                            <div class="photosItem">
-                                <div class="photoDetail">
-                                    <img src="../../../img/logo.png" alt="">
-                                    <span>photo_2025_2.png</span>
-                                </div>
-                                <img src="../../../img/download.png" class="icon" alt="">
-                            </div>
                         </div>
                     </div>
                     <div class="option">
@@ -228,5 +172,6 @@
                 </div>
             </div>
         </div>
+      <script src="chat1.js"></script>
     </body>
 </html>
