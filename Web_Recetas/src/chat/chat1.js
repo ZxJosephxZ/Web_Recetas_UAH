@@ -22,15 +22,13 @@ const desconocidos=[
 const container = document.getElementById("friendContainer");
 const searchInput = document.getElementById("searchInput");
 
-const nameUser = document.getElementById("user1");
-const imgUser= document.getElementById("img_user1");
-const nameUser2 = document.getElementById("user2");
-const imgUser2= document.getElementById("img_user2");
-nameUser.textContent = usuarioo.nombre+ " "+ usuarioo.apellido;
-nameUser2.textContent = usuarioo.nombre + " "+ usuarioo.apellido;
-imgUser.src = usuarioo.img;
-imgUser2.src = usuarioo.img;
+document.querySelectorAll('[data-user="user_name"]').forEach(el => {
+    el.textContent = usuarioo.nombre+ " "+ usuarioo.apellido;
+});
 
+document.querySelectorAll('[data-user="user_image"]').forEach(el => {
+    el.textContent = usuarioo.img;
+});
 
 function mostrarAmigos(lista)
 {
@@ -49,11 +47,25 @@ function mostrarAmigos(lista)
         <span>${amigo.nombre}</span>
         <p>${amigo.mensaje}</p>
         </div>`;
+        //Mostrar los datos onclik
+        item.addEventListener("click", () => {
+            actualizarPanelChat(amigo);
+        });
         container.appendChild(item);
     });
 }
 
+//Funcion de actualizado de panel
+function actualizarPanelChat(amigo)
+{
+    document.querySelector('[data-user="amigo_name"]').textContent = amigo.nombre;
+    document.querySelector('[data-user="amigo_mensaje"]').textContent = amigo.mensaje;
+    document.querySelector('[data-user="amigo_img"]').textContent = amigo.img;
+}
+
 mostrarAmigos(amigos);
+
+
 searchInput.addEventListener("input", e => {
     const texto = e.target.value.toLowerCase();
     const filtrados = amigos.filter(a =>
