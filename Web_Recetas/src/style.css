@@ -195,7 +195,8 @@ header nav{
     font-weight: 500;
     border-radius: 30px;
     border: none;
-    margin-top: 20px;
+    margin-top: 30px;
+    display: inline-block
 }
 
 .arrows{
@@ -338,4 +339,42 @@ header nav{
 .prev .list .item.other_2 .main-content
 {
     opacity: 0;
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+    padding-right: 30px;
+}
+
+.auth-buttons a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.auth-buttons .btn-login {
+    background-color: #4f8b69;
+    color: #fff;
+}
+
+.auth-buttons .btn-login:hover {
+    background-color: #3e7256;
+}
+
+.auth-buttons .btn-register {
+    background-color: transparent;
+    color: #000;
+    border: 2px solid #4f8b69;
+}
+
+.auth-buttons .btn-register:hover {
+    background-color: #4f8b69;
+    color: #fff;
 }
