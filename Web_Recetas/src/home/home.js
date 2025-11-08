@@ -80,7 +80,6 @@ function renderConversation(name) {
     <div class="chat-messages" style="padding:15px; max-height:60vh; overflow:auto; display:flex; flex-direction:column; gap:12px;"></div>
   `;
 
-  // Añadir comportamiento al botón de volver
   const backBtn = header.querySelector('.back-button');
   if (backBtn) {
     backBtn.addEventListener('click', (e) => {
@@ -151,7 +150,6 @@ function showChatList(){
   runResponsiveCheck();
 }
 
-// Small helper: detect if feed and chat overlap and switch chat to overlay mode when necessary
 function runResponsiveCheck(){
   const feedEl = document.querySelector('.feed');
   const chatEl = document.querySelector('.chat-sidebar');

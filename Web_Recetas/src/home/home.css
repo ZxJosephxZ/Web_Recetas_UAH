@@ -75,7 +75,6 @@ nav ul li a {
   min-height: calc(100vh - 70px);
 }
 
-/* Feed estilo Instagram */
 .feed {
   max-width: 600px;
   margin: 0 auto;
@@ -280,7 +279,7 @@ nav ul li a {
 .chat-conversation {
   display: flex;
   flex-direction: column;
-  height: calc(100% - 53px); /* header height */
+  height: calc(100% - 53px); 
 }
 
 .chat-messages {
@@ -475,7 +474,6 @@ nav ul li a {
   pointer-events: none;
 }
 
-/* Wide Screen Layout */
 @media (min-width: 1100px) {
   .main-container {
     position: relative;

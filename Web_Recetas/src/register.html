@@ -17,6 +17,11 @@
                 </div>
 
                 <div class="input-group">
+                    <label for="lastName">Apellido</label>
+                    <input type="text" id="lastName" placeholder="Tu apellido" required>
+                </div>
+
+                <div class="input-group">
                     <label for="email">Correo electrónico</label>
                     <input type="email" id="email" placeholder="ejemplo@correo.com" required>
                 </div>
@@ -38,12 +43,12 @@
     <script>
         document.getElementById("registerForm").addEventListener("submit", function(e){
             e.preventDefault();
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
+            const name = document.getElementById("name").value.trim();
+            const lastName = document.getElementById("lastName").value.trim();
+            const email = document.getElementById("email").value.trim();
             const password = document.getElementById("password").value;
 
-            const user = { name, email, password };
-            // Guardar en la lista de cuentas (accounts) y no sobreescribir la sesión actual
+            const user = { firstName: name, lastName: lastName, name: (name + (lastName ? ' ' + lastName : '')).trim(), email, password };
             const accounts = JSON.parse(localStorage.getItem("accounts")) || [];
             accounts.push(user);
             localStorage.setItem("accounts", JSON.stringify(accounts));
