@@ -14,16 +14,16 @@
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #108f3a;
+  background: rgba(230, 57, 70, 0.3);
   border-radius: 10px;
 }
 body{
-    background-color: #4f8b69;
+    background-color: #2a1515;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    color: white;
+    color: #fff5f5;
 }
 
 .container{
@@ -240,7 +240,7 @@ body{
         gap: 5px;
         p{
             padding: 20px;
-            background-color: rgba(17, 25, 40, 0.3);
+            background-color: rgba(255, 255, 255, 0.08);
             border-radius: 10px;
         }
         span{
@@ -359,20 +359,24 @@ body{
     }
 }
 
-.Detail .info button{
+.Detail .info a{
     padding: 15px;
     background-color: rgba(230, 74, 105, 0.553);
     color: white;
     border: none;
     border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
     cursor: pointer;
     &:hover{
         background-color: rgba(220, 20, 60, 0.796);
     }
-
-    &.logout{
-        padding: 10px;
-        background-color: #1a73e8;
-    }
+    
 }
 
+.Detail .info .logout{
+        background-color: #5183fe;
+        &:hover{
+            background-color: #2e66f3;
+        }
+    }

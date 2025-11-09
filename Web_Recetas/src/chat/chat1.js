@@ -3,6 +3,55 @@
 const usuarioo=
     {nombre: "Joseph", apellido: "Pajuelo", img: "../../../img/avatar.png"}
 ;
+const usuario = JSON.parse(localStorage.getItem('user'));
+
+if (usuario)
+{
+    document.querySelectorAll('[data-user="user_name"]').forEach(el => {
+    el.textContent = usuario.firstName+ " "+ usuario.lastName;
+});
+}
+
+const imgEdit = document.querySelector('.edit');
+const nameEdit = document.querySelector('.nameEdit');
+
+imgEdit.addEventListener("click", () => {
+    const input = document.createElement("input");
+    input.type = "text";
+    input.value = nameEdit.textContent;
+    input.classList.add("edit-input");
+
+    nameEdit.textContent = "";
+    nameEdit.appendChild(input);
+    input.focus();
+
+    input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter")
+        {
+            const nuevoNombre = input.value.trim();
+            if (nuevoNombre !== "")
+            {
+                nameEdit.textContent = nuevoNombre;
+
+                const usuario = JSON.parse(localStorage.getItem("user") || {});
+                usuario.firstName = nuevoNombre.split(" ")[0];
+                usuario.lastName = nuevoNombre.split(" ")[1] || {};
+                localStorage.setItem("user", JSON.stringify(usuario));
+                document.querySelectorAll('[data-user="user_name"]').forEach(el => {
+                    el.textContent = usuario.firstName + " " + usuario.lastName;});
+            }
+            else
+            {
+                nameEdit.textContent = usuario.firstName+" "+usuario.lastName;
+            }
+        }
+    });
+    input.addEventListener("blur", () => {
+        nameEdit.textContent = input.value.trim() || (usuario.firstName+" "+usuario.lastName);
+    });
+
+});
+
 
 const amigos=[
     {nombre: "Ana Ruiz", mensaje: "Hello", img:"../../../img/avatar.png"},
@@ -21,10 +70,6 @@ const desconocidos=[
 ];
 const container = document.getElementById("friendContainer");
 const searchInput = document.getElementById("searchInput");
-
-document.querySelectorAll('[data-user="user_name"]').forEach(el => {
-    el.textContent = usuarioo.nombre+ " "+ usuarioo.apellido;
-});
 
 document.querySelectorAll('[data-user="user_image"]').forEach(el => {
     el.textContent = usuarioo.img;
