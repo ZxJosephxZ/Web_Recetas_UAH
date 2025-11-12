@@ -75,6 +75,54 @@ document.querySelectorAll('[data-user="user_image"]').forEach(el => {
     el.textContent = usuarioo.img;
 });
 
+const messageContainer = document.getElementById('messageContainer');
+const input = document.getElementById('messageInput');
+const sendBtn = document.getElementById('SendBTN');
+
+function agregarMensaje(texto, esPropio = false)
+{
+    const div = document.createElement('div');
+    div.classList.add('message');
+    if (esPropio) div.classList.add('own');
+    const hora = new Date().toLocaleDateString([], {hour: '2-digit', minute: '2-digit'});
+    if (esPropio)
+    {
+        div.innerHTML = `
+            <div class="texts">
+            <p>${texto}</p>
+            <span>${hora}</span>
+            </div>`;
+    }else{
+        div.innerHTML = `
+        <img src ="../../../img/avatar.png" alt="">
+        <div class="texts">
+        <p>${texto}</p>
+        <span>${hora}</span>
+        </div>`;
+    }
+    messageContainer.appendChild(div);
+    messageContainer.scrollTop = messageContainer.scrollHeight;
+}
+
+sendBtn.addEventListener('click', () => {
+  const texto = input.value.trim();
+  if (texto === '') return;
+
+  agregarMensaje(texto, true); // el usuario envía
+  input.value = '';
+
+  // Simular respuesta del otro usuario (solo para demo)
+  setTimeout(() => {
+    agregarMensaje("Recibido 👍", false);
+  }, 1000);
+});
+
+input.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    sendBtn.click();
+  }
+});
+
 function mostrarAmigos(lista)
 {
     container.innerHTML = "";
