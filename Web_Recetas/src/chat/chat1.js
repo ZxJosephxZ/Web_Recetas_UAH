@@ -5,6 +5,68 @@ const usuarioo=
 ;
 const usuario = JSON.parse(localStorage.getItem('user'));
 
+const solicitudes = [
+    { nombre: "Carlos Mendoza", img: "../../../img/avatar.png" },
+    { nombre: "Ana Lucero", img: "../../../img/avatar.png" },
+    { nombre: "Marta Ruiz", img: "../../../img/avatar.png" }
+];
+const contenedor = document.getElementById("solicitudesContainer");
+
+function mostrarSolicitudes(lista) {
+    contenedor.innerHTML = ""; 
+
+    if (lista.length === 0) {
+        contenedor.innerHTML = "<p> No tienes solicitudes de amistad</p>";
+        return;
+    }
+
+    lista.forEach((solicitud, index) => {
+        const card = document.createElement("div");
+        card.classList.add("solicitud");
+
+        card.innerHTML = `
+            <img src="${solicitud.img}" alt="">
+            <div class="info">
+                <span>${solicitud.nombre}</span>
+                <div class="acciones">
+                    <button class="aceptar">Aceptar</button>
+                    <button class="rechazar">Rechazar</button>
+                </div>
+            </div>
+        `;
+
+        // Eventos
+        card.querySelector(".aceptar").addEventListener("click", () => {
+            aceptarSolicitud(index);
+        });
+
+        card.querySelector(".rechazar").addEventListener("click", () => {
+            rechazarSolicitud(index);
+        });
+
+        contenedor.appendChild(card);
+    });
+}
+
+function aceptarSolicitud(index) {
+    const user = solicitudes[index];
+    console.log("Solicitud aceptada:", user.nombre);
+
+    // Aquí luego llamarás al backend (fetch POST)
+    solicitudes.splice(index, 1);
+    mostrarSolicitudes(solicitudes);
+}
+
+function rechazarSolicitud(index) {
+    const user = solicitudes[index];
+    console.log("Solicitud rechazada:", user.nombre);
+
+    // Igual, luego harás fetch DELETE
+    solicitudes.splice(index, 1);
+    mostrarSolicitudes(solicitudes);
+}
+
+mostrarSolicitudes(solicitudes);
 if (usuario)
 {
     document.querySelectorAll('[data-user="user_name"]').forEach(el => {
@@ -154,6 +216,7 @@ function actualizarPanelChat(amigo)
     document.querySelector('[data-user="amigo_name"]').textContent = amigo.nombre;
     document.querySelector('[data-user="amigo_mensaje"]').textContent = amigo.mensaje;
     document.querySelector('[data-user="amigo_img"]').textContent = amigo.img;
+    actualizarBotonSolicitud(amigo.nombre);
 }
 
 mostrarAmigos(amigos);
@@ -195,3 +258,46 @@ searchInput.addEventListener("input", e => {
 
     
 });
+
+
+
+
+
+// Cuando clickeas "Enviar solicitud"
+btnSolicitud.addEventListener("click", () => {
+
+    const nombreActual = document.querySelector('[data-user="amigo_name"]').textContent.trim();
+
+    let solicitudesEnviadas = JSON.parse(localStorage.getItem("solicitudesEnviadas")) || [];
+
+    if (!solicitudesEnviadas.includes(nombreActual)) {
+        solicitudesEnviadas.push(nombreActual);
+        localStorage.setItem("solicitudesEnviadas", JSON.stringify(solicitudesEnviadas));
+    }
+
+    btnSolicitud.style.display = "none";
+    alert("Solicitud enviada a " + nombreActual);
+});
+
+function actualizarBotonSolicitud(nombreUsuario) {
+
+    const btnSolicitud = document.getElementById("btnSolicitud");
+
+    let solicitudesEnviadas = JSON.parse(localStorage.getItem("solicitudesEnviadas")) || [];
+
+    // Verificar si ya es amigo
+    const esAmigo = amigos.some(a => a.nombre === nombreUsuario);
+
+    if (esAmigo) {
+        btnSolicitud.style.display = "none";
+        return;
+    }
+
+    if (solicitudesEnviadas.includes(nombreUsuario)) {
+        btnSolicitud.style.display = "none";
+        return;
+    }
+
+    // Si no es amigo ni tiene solicitud enviada → mostrar
+    btnSolicitud.style.display = "inline";
+}

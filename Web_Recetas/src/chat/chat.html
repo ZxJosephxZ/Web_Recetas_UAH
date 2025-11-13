@@ -31,17 +31,16 @@
             </div>
             <div class="Chat">
                 <div class="top">
-                    <!--Igual solo debemos reutilizar componentes(esto es solo maquetado)-->
                     <div class="user">
                         <img src="../../../img/avatar.png" data-user="amigo_img" alt="">
                         <div class="texts">
-                            <span  data-user="amigo_name">Jane Doe</span>
+                            <span  data-user="amigo_name" id="amigo_nombre">Jane Doe</span>
                             <p data-user="amigo_mensaje">Lorem ipsum dolor sit amet1.</p>
                         </div>
                     </div>
                     <div class="icons">
                         <img src="../../../img/phone.png" alt="">
-                        <img src="../../../img/plus.png" alt="">
+                        <img src="../../../img/plus.png" id="btnSolicitud" alt="Enviar solicitud">
                         <img src="../../../img/info.png" alt="">
                     </div>
                 </div>
@@ -66,40 +65,11 @@
                     <h2 data-user="user_name">Joseph Pa</h2>
                     <p data-user="user_mensaje">Lorem ipsum dolor sit amet.</p>
                 </div>
+                <div class="solicitudes-header">
+                <h3>Solicitudes de amistad</h3>
+                </div>
+                <div id="solicitudesContainer"></div>
                 <div class="info">
-                    <div class="option">
-                        <div class="title">
-                            <span>Chat Settings</span>
-                            <img src="../../../img/arrowUp.png" alt="">
-                        </div>
-                    </div>
-                    <div class="option">
-                        <div class="title">
-                            <span>Privacy % help</span>
-                            <img src="../../../img/arrowUp.png" alt="">
-                        </div>
-                    </div>
-                    <div class="option">
-                        <div class="title">
-                            <span>Shared Photo</span>
-                            <img src="../../../img/arrowUp.png" alt="">
-                        </div>
-                        <div class="photos">
-                            <div class="photosItem">
-                                <div class="photoDetail">
-                                    <img src="../../../img/logo.png" alt="">
-                                    <span>photo_2025_2.png</span>
-                                </div>
-                                <img src="../../../img/download.png" class="icon" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="option">
-                        <div class="title">
-                            <span>Shared Files</span>
-                            <img src="../../../img/arrowDown.png" alt="">
-                        </div>
-                    </div>
                     <a href="../index.html">Logout
                     </a>
                     <a href="../home/home.html" class="logout">Back to menu

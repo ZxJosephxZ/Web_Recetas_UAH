@@ -380,3 +380,69 @@ body{
             background-color: #2e66f3;
         }
     }
+.Detail {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#solicitudesContainer {
+    flex: 1;
+    overflow-y: auto;
+}
+.solicitud {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding: 15px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.solicitudes-header {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.solicitudes-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+}
+.solicitud img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.solicitud .info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.solicitud .acciones {
+    display: flex;
+    gap: 10px;
+}
+
+.solicitud button {
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.solicitud .aceptar {
+    background-color: #5183fe;
+    color: white;
+}
+
+.solicitud .rechazar {
+    background: rgba(230, 74, 105, 0.553);
+    color: white;
+}
+ 
