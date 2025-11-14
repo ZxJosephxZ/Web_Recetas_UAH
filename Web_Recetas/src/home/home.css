@@ -140,7 +140,7 @@ nav ul li a {
   margin: 0;
 }
 
-.feed .post .info button {
+.feed .post .info button.recipe-btn {
   background: var(--accent);
   color: white;
   border: none;
@@ -154,10 +154,118 @@ nav ul li a {
   margin-top: 8px;
 }
 
-.feed .post .info button:hover {
+.feed .post .info button.recipe-btn:hover {
   background: var(--hover-accent);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(230,57,70,0.3);
+}
+
+/* Post Actions (Likes y Comentarios) */
+.post-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,200,200,0.1);
+}
+
+.like-btn, .comment-btn {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+}
+
+.like-btn:hover, .comment-btn:hover {
+  background: rgba(230,57,70,0.1);
+  transform: scale(1.05);
+}
+
+.like-btn:focus, .comment-btn:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.like-btn.liked {
+  background: var(--accent);
+  color: white;
+}
+
+.like-count, .comment-count {
+  font-weight: 600;
+}
+
+/* Comentarios */
+.comments-section {
+  margin-top: 12px;
+  padding: 12px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+}
+
+.comments-list {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.comment {
+  background: rgba(255,255,255,0.05);
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.comment strong {
+  color: var(--accent);
+}
+
+.comment-input-box {
+  display: flex;
+  gap: 8px;
+}
+
+.comment-input {
+  flex: 1;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid var(--border-color);
+  color: var(--text);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.comment-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 4px rgba(230,57,70,0.2);
+}
+
+.send-comment-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.send-comment-btn:hover {
+  background: var(--hover-accent);
 }
 
 /* Chat Sidebar */
@@ -172,7 +280,9 @@ nav ul li a {
   transform: translateX(0);
   transition: transform 280ms ease, opacity 280ms ease;
   will-change: transform;
-  height: 600px;
+  height: auto;
+  max-height: 650px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 .chat-header {
