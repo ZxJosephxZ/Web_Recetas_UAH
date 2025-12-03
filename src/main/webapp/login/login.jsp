@@ -1,0 +1,59 @@
+<%-- 
+    Document   : login
+    Created on : 1 dic 2025, 13:02:21
+    Author     : josep
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="form-box">
+            <h1>Inicia Sesión</h1>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" placeholder="ejemplo@correo.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" placeholder="********" required>
+                </div>
+
+                <button type="submit">Entrar</button>
+            </form>
+
+            <p class="register-link">
+                ¿No tienes cuenta? <a href="../register/register.jsp">Regístrate</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(e){
+            e.preventDefault();
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Buscar en la lista de cuentas registradas
+            const accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+            const matched = accounts.find(u => u.email === email && u.password === password);
+            if (matched) {
+                // Establecer sesión actual
+                localStorage.setItem("user", JSON.stringify(matched));
+                alert("Inicio de sesión correcto ");
+                window.location.href = "../home/home.jsp";
+            } else {
+                alert("Correo o contraseña incorrectos ");
+            }
+        });
+    </script>
+</body>
+</html>
